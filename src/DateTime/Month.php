@@ -32,6 +32,19 @@ class Month extends Enum
     }
 
     /**
+     * Returns Month from a native PHP value
+     *
+     * @param  int $month
+     * @return Month
+     */
+    public static function fromNative()
+    {
+        $month = func_get_arg(0);
+
+        return static::getByOrdinal($month - 1);
+    }
+
+    /**
      * Returns Month from a native PHP \DateTime
      *
      * @param  \DateTime $date
